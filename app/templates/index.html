@@ -13,7 +13,11 @@
 
 <body>
     
-    <h1 class="text-center">CONTACT FORM</h1>
+    
+    <div class="alert alert-danger" role="alert">
+        <h1 class="text-center">Book Store</h1>
+    
+    </div>
     <div class="container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -30,6 +34,7 @@
                     <option value="Malyalam">Malyalam</option>
                     <option value="French">French</option>
                </select>
+               
                <label for="genre">Genre</label>
                 <select class="form-control" name="genre" id="genre">
                     <option value="Nonfiction">Nonfiction</option>
@@ -38,7 +43,9 @@
                     <option value="Classic">Classic</option>
                     <option value="Adventure">Adventure</option>
                </select>
-                <input type="submit" class="btn btn-primary btn-lg mt-1 " value="Submit">
+               <label for="tags">Tags</label>
+               <input type="text" name="booktags" data-role="tagsinput" class="form-control" id="tags" placeholder="Enter comma separated tags here">
+                <input type="submit" class="btn btn-primary btn-sm mt-1 " value="Submit">
             </div>
         </form>
     </div>

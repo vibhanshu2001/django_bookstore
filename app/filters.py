@@ -4,4 +4,4 @@ class ContactFilter(django_filters.FilterSet):
     class Meta:
         model = Contact
         fields = '__all__'
-        exclude = []
+        exclude = ['tags']

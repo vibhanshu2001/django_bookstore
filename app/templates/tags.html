@@ -14,21 +14,13 @@
 <body>
     <div class="container">
         <div class="text-end">
-            <a href="/" type="button" class="btn btn-danger mt-3">Add New</a>
-        </div>
-        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-            Search for book details below
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <form method="GET">
-            {% csrf_token %}
-            <div class="form-group">
-                {{myFilter.form}}
+            <a href="/details" type="button" class="btn btn-primary mt-3">All Books</a>
+        </div>All Tags:
+        {% for tag in tags %}
+        <span class="badge bg-success"><a style="text-decoration:none;color:white;"
+            href="{% url 'tagdetails' tag.slug %}">{{tag.name}}</a></span>
+        {% endfor %}
 
-                <input type="submit" class="btn btn-primary btn-sm mt-1" value="Submit" />
-            </div>
-        </form>
-        
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
@@ -47,9 +39,11 @@
                     <td>{{i.language}}</td>
                     <td>{{i.genre}}</td>
                     <td>{% for tag in i.tags.all %}
-                    <span class="badge bg-danger"><a style="text-decoration:none;color:white;"
+                        <span class="badge bg-danger"><a style="text-decoration:none;color:white;"
                                 href="{% url 'tagdetails' tag.slug %}">{{tag.name}}</a></span>
-                    {% endfor %}</td>
+
+                        {% endfor %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

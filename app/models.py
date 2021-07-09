@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 # Create your models here.
 class Contact(models.Model):
     LANGUAGE_CHOICES = (
@@ -20,5 +21,6 @@ class Contact(models.Model):
     author = models.CharField(max_length=200, default='author')
     language = models.CharField(max_length=200,choices=LANGUAGE_CHOICES, default='English')
     genre = models.CharField(max_length=200,choices=GENRE_CHOICES, default='Fiction')
+    tags = TaggableManager()
     def __str__(self):
         return self.bookname
