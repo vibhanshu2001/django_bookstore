@@ -15,11 +15,11 @@
     <div class="container">
         <div class="text-end">
             <a href="/details" type="button" class="btn btn-primary mt-3">All Books</a>
-        </div>All Tags:
-        {% for tag in tags %}
+        </div>
+        {% comment %} {% for tag in tags %}
         <span class="badge bg-success"><a style="text-decoration:none;color:white;"
             href="{% url 'tagdetails' tag.slug %}">{{tag.name}}</a></span>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
 
         <table class="table table-bordered mt-4">
             <thead>

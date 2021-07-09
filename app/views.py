@@ -17,15 +17,13 @@ def index(request):
         language = request.POST.get('language')
         genre = request.POST.get('genre')
         booktags = request.POST.get('booktags')
-        print(booktags)
         contact.bookname=bookname
         contact.author=author
         contact.language=language
         contact.genre=genre
-        contact.tags=booktags
         contact.save()
-        # for tag in booktags:
-        #         contact.tags.add(tag)
+        for tag in booktags:
+                contact.tags.add(tag)
         return redirect('details')
     return render(request,'index.html')
     
