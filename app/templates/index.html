@@ -14,20 +14,23 @@
 <body>
     
     
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-info" role="alert">
         <h1 class="text-center">Book Store</h1>
     
     </div>
     <div class="container">
+        <div class="text-end">
+            <a href="/details" type="button" class="btn btn-success mt-3">View Books</a>
+        </div>
         <form action="" method="POST">
             {% csrf_token %}
             <div class="form-group">
                 <label for="fname">Book Name</label>
-                <input name="bookname" type="text" id="fname" class="form-control" placeholder="Enter Bookname here">
+                <input name="bookname" type="text" id="fname" class="form-control" placeholder="Enter Bookname here" required>
                 <label for="authorname">Author Name</label>
-                <input name="author" type="text" id="authorname" class="form-control" placeholder="Author name here">
+                <input name="author" type="text" id="authorname" class="form-control" placeholder="Author name here" required>
                 <label for="language">Language</label>
-                <select class="form-control" name="language" id="language">
+                <select class="form-control" name="language" id="language" required>
                     <option value="English">English</option>
                     <option value="Hindi">Hindi</option>
                     <option value="Telugu">Telugu</option>
@@ -36,7 +39,7 @@
                </select>
                
                <label for="genre">Genre</label>
-                <select class="form-control" name="genre" id="genre">
+                <select class="form-control" name="genre" id="genre" required>
                     <option value="Nonfiction">Nonfiction</option>
                     <option value="Fiction">Fiction</option>
                     <option value="Satire">Satire</option>
@@ -44,7 +47,7 @@
                     <option value="Adventure">Adventure</option>
                </select>
                <label for="tags">Tags</label>
-               <input type="text" name="booktags" data-role="tagsinput" class="form-control" id="tags" placeholder="Enter comma separated tags here">
+               <input type="text" name="booktags" data-role="tagsinput" class="form-control" id="tags" placeholder="Enter comma separated tags here" required>
                 <input type="submit" class="btn btn-primary btn-sm mt-1 " value="Submit">
             </div>
         </form>

@@ -3,6 +3,7 @@ from .models import Contact
 from .filters import ContactFilter
 from django.views.generic import ListView
 from taggit.models import Tag
+from django.contrib import messages
 def remove(string):
     return string.replace(" ", "")
 # Create your views here.
