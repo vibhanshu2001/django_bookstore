@@ -16,6 +16,7 @@
         <div class="text-end">
             <a href="/" type="button" class="btn btn-danger mt-3">Add New</a>
         </div>
+      
         <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
             Search for book details below
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -28,7 +29,7 @@
                 <input type="submit" class="btn btn-primary btn-sm mt-1" value="Submit" />
             </div>
         </form>
-        
+
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
@@ -46,10 +47,12 @@
                     <td>{{i.author}}</td>
                     <td>{{i.language}}</td>
                     <td>{{i.genre}}</td>
-                    <td>{% for tag in i.tags.all %}
-                    <span class="badge bg-danger"><a style="text-decoration:none;color:white;"
-                                href="{% url 'tagdetails' tag.slug %}">{{tag.name}}</a></span>
-                    {% endfor %}</td>
+                    <td>
+                        {% for tag in i.tags.all %}
+                        <span class="badge bg-danger"><a style="text-decoration: none; color: white"
+                                href="{% url 'appurl:tagdetails' tag.slug %}">{{tag.name}}</a></span>
+                        {% endfor %} 
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
