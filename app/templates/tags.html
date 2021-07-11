@@ -40,7 +40,7 @@
                     <td>{{i.genre}}</td>
                     <td>{% for tag in i.tags.all %}
                         <span class="badge bg-danger"><a style="text-decoration:none;color:white;"
-                                href="{% url 'tagdetails' tag.slug %}">{{tag.name}}</a></span>
+                                href="{% url 'appurl:tagdetails' tag.slug %}">{{tag.name}}</a></span>
 
                         {% endfor %}
                     </td>

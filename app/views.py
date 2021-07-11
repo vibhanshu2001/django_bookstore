@@ -3,6 +3,8 @@ from .models import Contact
 from .filters import ContactFilter
 from django.views.generic import ListView
 from taggit.models import Tag
+def remove(string):
+    return string.replace(" ", "")
 # Create your views here.
 class TagMixin(object):
     def get_context_data(self,**kwargs):
@@ -17,14 +19,15 @@ def index(request):
         language = request.POST.get('language')
         genre = request.POST.get('genre')
         booktags = request.POST.get('booktags')
+        tagvalues = remove(booktags).split(",")
         contact.bookname=bookname
         contact.author=author
         contact.language=language
         contact.genre=genre
         contact.save()
-        for tag in booktags:
+        for tag in tagvalues:
                 contact.tags.add(tag)
-        return redirect('details')
+        return redirect('/details')
     return render(request,'index.html')
     
 def details(request):

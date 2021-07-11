@@ -50,7 +50,7 @@
                     <td>
                         {% for tag in i.tags.all %}
                         <span class="badge bg-danger"><a style="text-decoration: none; color: white"
-                                href="{% url 'appurl:tagdetails' tag.slug %}">{{tag.name}}</a></span>
+                                href="/tags/{{tag.name}}">{{tag.name}}</a></span>
                         {% endfor %} 
                     </td>
                 </tr>
